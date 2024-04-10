@@ -1,0 +1,24 @@
+:root {
+  // COLORS
+  --color-white: #ffffff;
+  --color-error: #de2761;
+  --color-black: #23272a;
+  --color-blue: #5865f2;
+  --focus-border: #00b0f4;
+  --color-grey-light: #d9d9d9;
+  --color-off-white: #f6f6f6;
+  --color-grey: #99aab5;
+  --color-dark-hover: #3b3b3b;
+  // RADIUS
+  --radius-mini: 8px;
+  --radius-medium: 12px;
+  --radius-normal: 20px;
+  --radius-big: 22px;
+  --height-bar: 50px;
+  // Z-INDEX
+  --index-subheader: 10;
+  --index-bar-mobile: 100;
+  --index-portal: 1000;
+  --index-header: 5000;
+  --index-modal: 10000;
+}

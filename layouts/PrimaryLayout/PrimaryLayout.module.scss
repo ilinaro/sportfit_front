@@ -1,0 +1,5 @@
+.Main {
+  &_children {
+    min-height: calc(100vh - (var(--height-bar)));
+  }
+}

@@ -1,1 +1,3 @@
-export type { TypeA } from "./package-1";
+export * from './page';
+export * from './system';
+export * from './SVG';

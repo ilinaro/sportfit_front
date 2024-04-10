@@ -1,15 +1,13 @@
-import type { TypeA } from "../types";
+import { Page } from '@types';
+import { PrimaryLayout } from '@layouts';
+import { Home } from '@feature';
 
-const Example: TypeA = {
-    name: "next",
+const HomePage: Page = () => {
+  return <Home />;
 };
 
-export const Home: React.FC = () => {
-    return (
-        <div style={{ display: "flex", justifyContent: "center" }}>
-            <h1>
-                <p>{Example.name}</p>
-            </h1>
-        </div>
-    );
-}
+export default HomePage;
+
+HomePage.getLayout = function getLayout(page: React.ReactElement) {
+  return <PrimaryLayout>{page}</PrimaryLayout>;
+};

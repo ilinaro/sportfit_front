@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'Gilroy-Medium';
+  src: url('../public/fonts/Gilroy-Medium.eot');
+  src:
+    local('Gilroy-Medium'),
+    local('Gilroy-Medium'),
+    url('../public/fonts/Gilroy-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../public/fonts/Gilroy-Medium.woff2') format('woff2'),
+    url('../public/fonts/Gilroy-Medium.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy-Semibold';
+  src: url('../public/fonts/Gilroy-Semibold.eot');
+  src:
+    local('Gilroy-Semibold'),
+    local('Gilroy-Semibold'),
+    url('../public/fonts/Gilroy-Semibold.eot?#iefix')
+      format('embedded-opentype'),
+    url('../public/fonts/Gilroy-Semibold.woff2') format('woff2'),
+    url('../public/fonts/Gilroy-Semibold.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy-Light';
+  src: url('../public/fonts/Gilroy-Light.eot');
+  src:
+    local('Gilroy-Light'),
+    local('Gilroy-Light'),
+    url('../public/fonts/Gilroy-Light.eot') format('embedded-opentype'),
+    url('../public/fonts/Gilroy-Light.woff2') format('woff2'),
+    url('../public/fonts/Gilroy-Light.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}

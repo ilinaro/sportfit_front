@@ -1,0 +1,53 @@
+@import './reset.scss';
+@import './vars.scss';
+@import './fonts.scss';
+
+body {
+  font-family: Gilroy-Medium;
+  font-weight: 400;
+  color: var(--color-gray-900);
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.textNoSelect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input:active,
+input:hover,
+input:focus,
+button:hover,
+button:focus,
+button:active {
+  outline: 0;
+  outline-offset: 0;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type='number'],
+input[type='number']:hover,
+input[type='number']:focus {
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+.ql-align-center {
+  text-align: center;
+}
+
+.ql-align-right {
+  text-align: right;
+}

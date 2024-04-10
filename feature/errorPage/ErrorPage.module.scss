@@ -1,0 +1,21 @@
+.errorPage {
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 10px;
+  margin: 0 auto;
+  height: 500px;
+
+  &__content {
+    padding: 24px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__title {
+    margin-bottom: 12px;
+  }
+}
