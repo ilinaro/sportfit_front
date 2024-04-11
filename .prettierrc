@@ -15,7 +15,5 @@
   "proseWrap": "preserve",
   "quoteProps": "as-needed",
   "requirePragma": false,
-  "semi": true,
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
+  "semi": true
 }

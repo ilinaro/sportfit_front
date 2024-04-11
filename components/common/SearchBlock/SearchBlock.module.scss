@@ -1,0 +1,16 @@
+.SearchBlock {
+  background-color: var(--color-blue);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Search {
+  width: 700px;
+  height: 40px;
+  border-radius: var(--radius-max);
+  padding: 0 20px;
+  border: none;
+  font-size: 16px;
+}

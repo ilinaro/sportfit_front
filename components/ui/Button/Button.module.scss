@@ -1,0 +1,13 @@
+.Root {
+  border-radius: var(--radius-max);
+  min-width: 100px;
+  height: 45px;
+  padding: 0 30px;
+  border: none;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  transition: 0.2s background-color ease-in-out;
+  &:hover {
+    background-color: var(--color-blue-dark);
+  }
+}

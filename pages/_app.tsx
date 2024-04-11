@@ -46,6 +46,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         isTablet: undefined,
       })
     );
+    // react-hooks/exhaustive-deps
   }, []);
 
   return (

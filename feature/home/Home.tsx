@@ -1,5 +1,24 @@
+import { Button } from '@components';
 import styles from './Home.module.scss';
+import { useGetProductsAllQuery } from '@lib/';
+import { ProductList } from './ProductList';
 
 export const Home: React.FC = () => {
-  return <div className={styles.Home}>Home</div>;
+  const { data, hasNextPage, fetchNextPage } = useGetProductsAllQuery();
+
+  return (
+    <div className={styles.Home}>
+      {data?.pages.map((page) => (
+        <ProductList key={page.next} results={page.results} />
+      ))}
+
+      {hasNextPage && (
+        <div className={styles.NextList}>
+          <Button onClick={async () => await fetchNextPage()}>
+            Показать еще
+          </Button>
+        </div>
+      )}
+    </div>
+  );
 };
