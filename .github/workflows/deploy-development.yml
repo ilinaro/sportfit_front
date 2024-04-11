@@ -1,0 +1,24 @@
+name: deploy-dev
+
+on:
+  push:
+    branches: ['dev']
+
+jobs:
+  build-dev:
+    if: ${{ github.ref == 'refs/heads/dev' }}
+    runs-on: [self-hosted, sport-pit]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: docker build . -t dev-app -f Dockerfile.development
+
+  start:
+    runs-on: [self-hosted, sport-pit]
+    needs: build-dev
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run the Docker container
+        run: make run APP_PORT=3000 NAME=dev-app
+      - name: Start the Docker container
+        run: make start NAME=dev-app
