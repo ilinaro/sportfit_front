@@ -1,3 +1,4 @@
+import { Button } from '@components/ui';
 import styles from './HeadBar.module.scss';
 import { Text, TextInput, Title } from '@mantine/core';
 import { SignIn } from 'phosphor-react';
@@ -15,10 +16,12 @@ export const HeadBar: React.FC = () => {
         <Text size={'lg'}>Протеины</Text>
       </div>
       <div className={styles.LoginSection}>
-        <div className={styles.Login}>
-          <Text size="md">Войти</Text>
-          <SignIn size={22} />
-        </div>
+        <Button color={'white'}>
+          <div className={styles.Login}>
+            <Text size="md">Войти</Text>
+            <SignIn size={22} />
+          </div>
+        </Button>
       </div>
     </div>
   );

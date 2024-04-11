@@ -1,3 +1,4 @@
+import '@mantine/core/styles.css';
 import '../styles/globals.scss';
 import type { AppProps } from 'next/app';
 import { createTheme, MantineProvider } from '@mantine/core';
@@ -25,7 +26,7 @@ type AppPropsWithLayout = AppProps & {
   pageProps: { isMobileView?: boolean; dehydratedState: DehydratedState };
 };
 
-export const queryClientBase = new QueryClient({
+export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 0,
@@ -38,21 +39,10 @@ export const queryClientBase = new QueryClient({
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
 
-  useEffect(() => {
-    store.dispatch(
-      toggleDeviceType({
-        isMobile: pageProps.isMobileView as boolean | undefined,
-        isPhone: undefined,
-        isTablet: undefined,
-      })
-    );
-    // react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <>
       <NextNProgress
-        color="#333333"
+        color="white"
         startPosition={0.3}
         stopDelayMs={200}
         height={3}
@@ -60,26 +50,30 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         options={{ showSpinner: false }}
       />
       <Toaster containerStyle={{ zIndex: 1000000 }} />
-      <DatesProvider
-        settings={{
-          locale: 'ru',
-        }}
-      >
-        <QueryClientProvider client={queryClientBase}>
-          <MantineProvider>
+      <MantineProvider>
+        <DatesProvider
+          settings={{
+            locale: 'ru',
+          }}
+        >
+          <QueryClientProvider client={queryClient}>
             <Provider store={store}>
               <Hydrate state={pageProps.dehydratedState}>
-                <ErrorBoundary>
-                  {getLayout(<Component {...pageProps} />)}
-                </ErrorBoundary>
+                {process.env.NODE_ENV === 'development' ? (
+                  getLayout(<Component {...pageProps} />)
+                ) : (
+                  <ErrorBoundary>
+                    {getLayout(<Component {...pageProps} />)}
+                  </ErrorBoundary>
+                )}
                 {process.env.NODE_ENV === 'development' && false && (
                   <ReactQueryDevtools initialIsOpen={false} />
                 )}
               </Hydrate>
             </Provider>
-          </MantineProvider>
-        </QueryClientProvider>
-      </DatesProvider>
+          </QueryClientProvider>
+        </DatesProvider>
+      </MantineProvider>
     </>
   );
 }

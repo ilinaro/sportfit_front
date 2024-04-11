@@ -2,6 +2,7 @@ import { Button } from '@components';
 import styles from './Home.module.scss';
 import { useGetProductsAllQuery } from '@lib/';
 import { ProductList } from './ProductList';
+import { Text } from '@mantine/core';
 
 export const Home: React.FC = () => {
   const { data, hasNextPage, fetchNextPage } = useGetProductsAllQuery();
@@ -15,7 +16,7 @@ export const Home: React.FC = () => {
       {hasNextPage && (
         <div className={styles.NextList}>
           <Button onClick={async () => await fetchNextPage()}>
-            Показать еще
+            <Text>Показать еще</Text>
           </Button>
         </div>
       )}

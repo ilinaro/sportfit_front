@@ -9,6 +9,8 @@ export const useGetProductsAllQuery = () => {
     {
       getNextPageParam: (lastPage) => lastPage.next,
       getPreviousPageParam: (lastPage) => lastPage.previous,
+      refetchOnWindowFocus: false,
+      refetchInterval: false,
     }
   );
   return {
