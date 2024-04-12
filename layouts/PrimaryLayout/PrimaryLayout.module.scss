@@ -1,4 +1,5 @@
 .Main {
+  position: relative;
   background-color: var(--color-grey-light);
   &_children {
     min-height: calc(100vh - (var(--height-bar)));

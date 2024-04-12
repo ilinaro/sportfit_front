@@ -23,11 +23,3 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-
-// if (process.env.NODE_ENV === 'production') {
-//   Object.assign(nextConfig, {
-//     compiler: { removeConsole: { exclude: ['error'] } },
-//   });
-// }
-
-module.exports = nextConfig;

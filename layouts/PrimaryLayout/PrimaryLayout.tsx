@@ -1,4 +1,4 @@
-import { Footer, HeadBar, SearchBlock } from '@components';
+import { Footer, FooterBar, HeadBar, SearchBlock } from '@components';
 import styles from './PrimaryLayout.module.scss';
 import {
   useAppDispatch,
@@ -40,9 +40,10 @@ export const PrimaryLayout: React.FC<PrimaryLayoutProps> = ({
   return (
     <div className={styles.Main}>
       <HeadBar />
-      <SearchBlock />
+      {!isMobile && <SearchBlock />}
       <div className={styles.Main_children}>{children}</div>
-      <Footer />
+      {!isMobile && <Footer />}
+      {isMobile && <FooterBar />}
     </div>
   );
 };

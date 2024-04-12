@@ -10,17 +10,17 @@ export const useDeviceTypeIdentifier = () => {
 
   useEffect(() => {
     const clientWidth: number = window.innerWidth;
-    const mobileCondition: boolean = clientWidth < 1024.1;
-    const tabletCondition: boolean = clientWidth < 1024.1 && clientWidth > 768;
+    const mobileCondition: boolean = clientWidth < 1200.1;
+    const tabletCondition: boolean = clientWidth < 1200.1 && clientWidth > 768;
     const phoneCondition: boolean = clientWidth < 768;
     setMobile(mobileCondition);
     setTablet(tabletCondition);
     setPhone(phoneCondition);
     window.addEventListener('resize', () => {
       const resizeClientWidth = window.innerWidth;
-      const resizeMobileCondition: boolean = resizeClientWidth < 1024.1;
+      const resizeMobileCondition: boolean = resizeClientWidth < 1200.1;
       const resizeTabletCondition: boolean =
-        resizeClientWidth < 1024.1 && resizeClientWidth > 768.1;
+        resizeClientWidth < 1200.1 && resizeClientWidth > 768.1;
       const resizePhoneCondition: boolean = resizeClientWidth < 768;
       setMobile(resizeMobileCondition);
       setTablet(resizeTabletCondition);

@@ -1,13 +1,15 @@
 import { Text, Title } from '@mantine/core';
 import styles from './Footer.module.scss';
 import Link from 'next/link';
+import { useAppSelector } from '@lib';
 
 export const Footer: React.FC = () => {
+  const { isMobile } = useAppSelector((state) => state.isMobile);
   return (
     <div className={styles.Footer}>
       <div className={styles.Logo}>
         <Link href={'/'}>
-          <Title order={1} c="white">
+          <Title order={isMobile ? 4 : 1} c="white">
             SportPit
           </Title>
         </Link>
@@ -40,7 +42,7 @@ export const Footer: React.FC = () => {
                 passHref
                 target="_blank"
               >
-                <Text>Виктор (Backend)</Text>
+                <Text>Владимир (Backend)</Text>
               </Link>
             </div>
             <div>

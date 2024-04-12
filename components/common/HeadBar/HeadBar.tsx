@@ -2,12 +2,17 @@ import { Button } from '@components/ui';
 import styles from './HeadBar.module.scss';
 import { Text, TextInput, Title } from '@mantine/core';
 import { SignIn } from 'phosphor-react';
+import { useAppSelector } from '@lib';
+import clsx from 'clsx';
 
 export const HeadBar: React.FC = () => {
+  const { isMobile } = useAppSelector((state) => state.isMobile);
   return (
-    <div className={styles.HeadBar}>
+    <div
+      className={clsx(styles.HeadBar, { [styles.HeadBar_isMobile]: isMobile })}
+    >
       <div className={styles.Logo}>
-        <Title order={1}>SportPit</Title>
+        <Title order={isMobile ? 4 : 1}>SportPit</Title>
       </div>
       <div className={styles.List}>
         <Text size={'lg'}>Бады</Text>
@@ -15,14 +20,16 @@ export const HeadBar: React.FC = () => {
         <Text size={'lg'}>Креатин</Text>
         <Text size={'lg'}>Протеины</Text>
       </div>
-      <div className={styles.LoginSection}>
-        <Button color={'white'}>
-          <div className={styles.Login}>
-            <Text size="md">Войти</Text>
-            <SignIn size={22} />
-          </div>
-        </Button>
-      </div>
+      {!isMobile && (
+        <div className={styles.LoginSection}>
+          <Button color={'white'}>
+            <div className={styles.Login}>
+              <Text size="md">Войти</Text>
+              <SignIn size={22} />
+            </div>
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
