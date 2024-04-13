@@ -55,6 +55,8 @@
 
 @media screen and (max-width: 1200px) {
   .HeadBar {
+    position: fixed;
+    z-index: var(--index-header);
     &_isMobile {
       height: var(--height-bar-mob);
     }

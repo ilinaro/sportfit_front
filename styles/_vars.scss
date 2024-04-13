@@ -1,7 +1,8 @@
 :root {
   // COLORS
+  --colors-yellow: #FFFF00;
   --color-white: #ffffff;
-  --color-error: #de2761;
+  --color-red: #de2761;
   --color-black: #23272a;
   --color-blue: #5865f2;
   --color-blue-dark: #4250e1;
@@ -21,8 +22,9 @@
   --height-bar-mob: 40px;
   // Z-INDEX
   --index-subheader: 10;
-  --index-bar-mobile: 100;
+  --index-bar-mobile: 1000;
   --index-portal: 1000;
-  --index-header: 5000;
+  --index-header: 1000;
   --index-modal: 10000;
+  --index-card: 100;
 }
