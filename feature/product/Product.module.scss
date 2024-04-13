@@ -1,0 +1,32 @@
+.Product {
+  &_header {
+    height: 100px;
+    border: blue solid;
+  }
+
+  &__block {
+    height: 400px;
+    display: flex;
+    &_img {
+      width: 50%;
+      border: red solid;
+      height: 100%;
+    }
+    &_options {
+      width: 50%;
+      border: red solid;
+      height: 100%;
+    }
+  }
+  &_description {
+    border: red solid;
+    height: 400px;
+  }
+
+  &_notfound {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

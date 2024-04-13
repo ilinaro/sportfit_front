@@ -1,38 +1,38 @@
 .FooterBar {
-    height: 70px;
-    bottom: 0;
-    width: 100%;
-    z-index: var(--index-bar-mobile);
-    position: fixed;
-    background-color: var(--color-black);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0 20px;
+  height: 70px;
+  bottom: 0;
+  width: 100%;
+  z-index: var(--index-bar-mobile);
+  position: fixed;
+  background-color: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 20px;
 }
 
 .Item {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--radius-max);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-max);
 }
 
 @media screen and (max-width: 768px) {
-    .FooterBar {
-        height: 50px;
-    }
+  .FooterBar {
+    height: 50px;
+  }
 
-    .Item {
-        width: 40px;
-        height: 40px;
+  .Item {
+    width: 40px;
+    height: 40px;
 
-        &> :nth-child(1n) {
-            width: 30px;
-            height: 30px;
-        }
+    & > :nth-child(1n) {
+      width: 30px;
+      height: 30px;
     }
+  }
 }

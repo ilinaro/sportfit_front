@@ -4,6 +4,7 @@ import { Text, TextInput, Title } from '@mantine/core';
 import { SignIn } from 'phosphor-react';
 import { useAppSelector } from '@lib';
 import clsx from 'clsx';
+import Link from 'next/link';
 
 export const HeadBar: React.FC = () => {
   const { isMobile } = useAppSelector((state) => state.isMobile);
@@ -12,7 +13,9 @@ export const HeadBar: React.FC = () => {
       className={clsx(styles.HeadBar, { [styles.HeadBar_isMobile]: isMobile })}
     >
       <div className={styles.Logo}>
-        <Title order={isMobile ? 4 : 1}>SportPit</Title>
+        <Link href={'/'}>
+          <Title order={isMobile ? 4 : 1}>SportPit</Title>
+        </Link>
       </div>
       <div className={styles.List}>
         <Text size={'lg'}>Бады</Text>
