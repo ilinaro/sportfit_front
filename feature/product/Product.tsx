@@ -20,11 +20,7 @@ const ProductNotFound: JSX.Element = (
 );
 
 export const Product: React.FC<ProductPropsT> = ({ id }) => {
-  if (!id) {
-    return ProductNotFound;
-  }
-
-  const { data: product } = useGetProductIdQuery(id);
+  const { data: product } = useGetProductIdQuery(id ?? 0);
 
   const [count, setCount] = useState<number>(1);
 

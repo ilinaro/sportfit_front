@@ -51,7 +51,7 @@ export const SwiperProduct: React.FC<SwiperProductPropsT> = ({ images }) => {
         <CaretLeft size={32} />
       </div>
       <Swiper
-        onSwiper={(swiper) => {
+        onSwiper={(swiper: SwiperType) => {
           swiperRef.current = swiper;
         }}
         onTransitionEnd={swiperUpdater}
