@@ -20,7 +20,7 @@ export const Card: React.FC<CardT> = ({ product }) => {
   };
 
   const hanlerProductLike = (
-    event: React.MouseEvent<SVGSVGElement, MouseEvent>
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     event.stopPropagation();
     if (!product?.id) return;
@@ -31,21 +31,23 @@ export const Card: React.FC<CardT> = ({ product }) => {
     <div className={styles.Card} onClick={handlerOpenProduct}>
       {!!product?.discount && (
         <div className={styles.Card_discount}>
-          <Text fw={700}>{product?.discount} %</Text>
+          <Text fw={700}>
+            {product?.discount && `${product.discount}`.split('.')[0]} %
+          </Text>
         </div>
       )}
-      <div className={styles.Card_like}>
-        <Heart size={22} onClick={hanlerProductLike} />
+      <div className={styles.Card_like} onClick={hanlerProductLike}>
+        <Heart size={22} />
       </div>
       <div className={styles.Card_img}>
-        {!product?.img && (
+        {!product?.images[0]?.img && (
           <div className={styles.NoImage}>
             <NoteBlank size={32} />
           </div>
         )}
-        {product?.img && (
+        {product?.images[0]?.img && (
           <Image
-            src={product.img}
+            src={product?.images[0].img}
             alt={`${product?.name}`}
             fill
             objectFit="cover"

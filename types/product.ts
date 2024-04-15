@@ -12,7 +12,11 @@ export type ProductT = {
   discount: number | null;
   discount_price: number | null;
   id: number;
-  img: string | null;
+  quantity: number | null;
+  images: {
+    id: number;
+    img: string | null;
+  }[];
   name: string | null;
   price: number | null;
   time_create: string | null;

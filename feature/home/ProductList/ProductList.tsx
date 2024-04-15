@@ -3,7 +3,7 @@ import styles from './ProductList.module.scss';
 import { Card } from '@components';
 
 type ProductListT = {
-  results?: Partial<ProductT[]>;
+  results?: ProductT[];
 };
 
 export const ProductList: React.FC<ProductListT> = ({ results }) => {

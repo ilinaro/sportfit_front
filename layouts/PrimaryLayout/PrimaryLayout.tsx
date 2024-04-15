@@ -37,6 +37,8 @@ export const PrimaryLayout: React.FC<PrimaryLayoutProps> = ({
 
   useNoScroll(noScroll);
 
+  if (isMobile === undefined) return null;
+
   return (
     <div className={styles.Main}>
       <HeadBar />

@@ -8,7 +8,7 @@ type ButtonComponentT = JSX.IntrinsicElements['button'] & {
   children: React.ReactNode;
   onClick?: MouseEventHandler;
   fullWidth?: boolean;
-  color?: 'blue' | 'white';
+  color?: 'blue' | 'white' | 'grey';
 };
 
 export const ButtonComponent = React.forwardRef<

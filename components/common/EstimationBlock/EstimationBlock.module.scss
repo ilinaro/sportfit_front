@@ -1,0 +1,84 @@
+.Estimation {
+  position: relative;
+  display: flex;
+  width: fit-content;
+
+  &__item {
+    svg > path {
+      fill: var(--color-noactive, #c4c4c4);
+    }
+
+    &_active {
+      svg > path {
+        fill: var(--color-yellow, #f5b942);
+      }
+    }
+  }
+  &_using {
+    flex-direction: row-reverse;
+    overflow: hidden;
+    width: fit-content;
+    min-width: 100px;
+    margin: 0 auto;
+
+    input {
+      display: none;
+    }
+    label {
+      cursor: pointer;
+    }
+    label:hover,
+    label:hover ~ label,
+    input:checked ~ label {
+      svg > path {
+        fill: var(--color-yellow);
+      }
+    }
+
+    input:checked + label {
+    }
+    // label:hover,
+    // label:hover ~ label {
+    //   svg > path {
+    //     fill: var(--color-yellow);
+    //   }
+    // }
+    // label > input:checked + svg,
+    // label > input:checked ~ label > svg {
+    //   path {
+    //     fill: var(--color-yellow);
+    //   }
+    // }
+
+    // &:not(:checked) > label {
+    //   float: right;
+    //   padding: 0;
+    //   cursor: pointer;
+
+    //   svg > path {
+    //     fill: var(--color-noactive, #c4c4c4);
+    //   }
+    // }
+    // label > input:checked {
+    //   path {
+    //     fill: var(--color-yellow, #f5b942);
+    //   }
+    // }
+    // &:not(:checked) > label:hover,
+    // &:not(:checked) > label:hover ~ label {
+    //   svg > path {
+    //     fill: var(--color-yellow, #f5b942);
+    //   }
+  }
+
+  // input:checked + label:hover,
+  // input:checked + label:hover ~ label,
+  // input:checked ~ label:hover,
+  // input:checked ~ label:hover ~ label,
+  // label:hover ~ input:checked ~ label {
+  //   svg > path {
+  //     fill: var(--color-yellow, #f5b942);
+  //   }
+  // }
+  // }
+}

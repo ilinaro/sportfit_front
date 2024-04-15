@@ -4,14 +4,14 @@ import type { AppProps } from 'next/app';
 import { createTheme, MantineProvider } from '@mantine/core';
 import {
   DehydratedState,
-  Hydrate,
+  HydrationBoundary,
   QueryClient,
   QueryClientProvider,
-} from 'react-query';
+} from '@tanstack/react-query';
 import 'dayjs/locale/ru';
 import NextNProgress from 'nextjs-progressbar';
 import React, { useEffect } from 'react';
-import { ReactQueryDevtools } from 'react-query/devtools';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { toggleDeviceType } from '@store/deviceTypeSlice';
 import { Toaster } from 'react-hot-toast';
 import ErrorBoundary from '@layouts/ErrorBoundary/ErrorBoundary';
@@ -58,7 +58,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         >
           <QueryClientProvider client={queryClient}>
             <Provider store={store}>
-              <Hydrate state={pageProps.dehydratedState}>
+              <HydrationBoundary state={pageProps.dehydratedState}>
                 {process.env.NODE_ENV === 'development' ? (
                   getLayout(<Component {...pageProps} />)
                 ) : (
@@ -69,7 +69,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
                 {process.env.NODE_ENV === 'development' && false && (
                   <ReactQueryDevtools initialIsOpen={false} />
                 )}
-              </Hydrate>
+              </HydrationBoundary>
             </Provider>
           </QueryClientProvider>
         </DatesProvider>

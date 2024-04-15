@@ -1,0 +1,29 @@
+.SwiperProduct {
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  display: flex;
+}
+
+.ContainerPrev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.Swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.PreviewButton {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100%;
+}

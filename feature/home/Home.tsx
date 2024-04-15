@@ -1,8 +1,8 @@
 import { Button } from '@components';
 import styles from './Home.module.scss';
-import { useGetProductsAllQuery } from '@lib/';
 import { ProductList } from './ProductList';
 import { Text } from '@mantine/core';
+import { useGetProductsAllQuery } from '@lib';
 
 export const Home: React.FC = () => {
   const { data, hasNextPage, fetchNextPage } = useGetProductsAllQuery();
@@ -10,9 +10,8 @@ export const Home: React.FC = () => {
   return (
     <div className={styles.Home}>
       {data?.pages.map((page) => (
-        <ProductList key={page.next} results={page.results} />
+        <ProductList key={page?.data?.next} results={page?.data?.results} />
       ))}
-
       {hasNextPage && (
         <div className={styles.NextList}>
           <Button onClick={async () => await fetchNextPage()}>
