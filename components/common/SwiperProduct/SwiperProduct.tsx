@@ -16,8 +16,6 @@ type SwiperProductPropsT = {
 };
 
 export const SwiperProduct: React.FC<SwiperProductPropsT> = ({ images }) => {
-  const [activeSlide, setActiveSlide] = useState<number>(0);
-  const [activeIndex, setActiveIndex] = useState<number>(0);
   const swiperRef = useRef<SwiperType | null>();
 
   const [hasPrev, setHasPrev] = useState<boolean | undefined>(false);
@@ -62,13 +60,7 @@ export const SwiperProduct: React.FC<SwiperProductPropsT> = ({ images }) => {
       >
         {!!images?.length &&
           images.map((item, i) => (
-            <SwiperSlide
-              key={item.id}
-              className={clsx(
-                styles.Swiper__slide,
-                activeSlide === item.id && styles.Swiper__slide_active
-              )}
-            >
+            <SwiperSlide key={item.id} className={clsx(styles.Swiper__slide)}>
               <div className={styles.ContainerPrev}>
                 {item?.img && (
                   <Image
@@ -85,13 +77,7 @@ export const SwiperProduct: React.FC<SwiperProductPropsT> = ({ images }) => {
             </SwiperSlide>
           ))}
       </Swiper>
-      <div
-        className={clsx(
-          styles.PreviewButton,
-          disabledNextButton && styles.Preview__button_disabled
-        )}
-        onClick={handleNextSlide}
-      >
+      <div className={clsx(styles.PreviewButton)} onClick={handleNextSlide}>
         <CaretRight size={32} />
       </div>
     </div>

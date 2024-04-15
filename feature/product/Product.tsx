@@ -3,7 +3,7 @@ import styles from './Product.module.scss';
 import { useGetProductIdQuery } from '@lib/product/useGetProductIdQuery';
 import { correctNumber, numberWithSpaces } from '@utils';
 import { useEffect, useState } from 'react';
-import { Minus, Plus } from 'phosphor-react';
+import { Heart, Minus, Plus } from 'phosphor-react';
 import { EstimationBlock, Button } from '@components';
 import { SwiperProduct } from '@components/common/SwiperProduct/SwiperProduct';
 
@@ -43,6 +43,11 @@ export const Product: React.FC<ProductPropsT> = ({ id }) => {
     setCount((prev) => prev - 1);
   };
 
+  const hanlerProductLike = () => {
+    if (!product?.id) return;
+    console.log(product?.id);
+  };
+
   return (
     <div className={styles.Product}>
       <div className={styles.Product_header}>
@@ -57,6 +62,9 @@ export const Product: React.FC<ProductPropsT> = ({ id }) => {
               </Text>
             </div>
           )}
+          <div className={styles.Product_like} onClick={hanlerProductLike}>
+            <Heart size={22} />
+          </div>
           <SwiperProduct images={product?.images} />
         </div>
         <div className={styles.Product__block_options}>
@@ -87,6 +95,7 @@ export const Product: React.FC<ProductPropsT> = ({ id }) => {
               </div>
             )}
           </div>
+
           <div className={styles.Product_quantity}>
             <Text c={'gray'}>На складе: {product?.quantity || 0} шт</Text>
           </div>

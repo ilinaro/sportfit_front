@@ -1,8 +1,6 @@
 import { QUERY_KEYS } from '@lib';
 import ProductService from '@services/products.service';
 import { useQuery } from '@tanstack/react-query';
-import { ProductT } from '@types';
-import { AxiosResponse } from 'axios';
 
 export const useGetProductIdQuery = (id: number) => {
   const { data, ...stuff } = useQuery({
@@ -10,7 +8,7 @@ export const useGetProductIdQuery = (id: number) => {
     queryFn: () => ProductService.getId(id),
   });
   return {
-    data: data?.product?.[0],
+    data: data?.[0],
     ...stuff,
   };
 };

@@ -11,8 +11,9 @@ const ProductService = {
   },
 
   getId: async (id: number) => {
-    const { data }: { data: Partial<{ product: ProductT[] }> } =
-      await HttpService().get(`/product-list/${id}/`);
+    const { data }: { data: Partial<ProductT[]> } = await HttpService().get(
+      `/product-list/${id}/`
+    );
     return data;
   },
 };
