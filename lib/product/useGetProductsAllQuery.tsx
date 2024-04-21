@@ -1,11 +1,6 @@
 import { PaginatedResponseT, ProductT } from '@types';
 import { QUERY_KEYS } from '@lib';
-import {
-  useInfiniteQuery,
-  QueryFunctionContext,
-  UseInfiniteQueryOptions,
-  InfiniteData,
-} from '@tanstack/react-query';
+import { useInfiniteQuery } from '@tanstack/react-query';
 import ProductService from '@services/products.service';
 import { AxiosResponse } from 'axios';
 

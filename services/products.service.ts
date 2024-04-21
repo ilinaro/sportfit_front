@@ -10,10 +10,9 @@ const ProductService = {
     return data;
   },
 
-  getId: async (id: number) => {
-    const { data }: { data: Partial<ProductT[]> } = await HttpService().get(
-      `/product-list/${id}/`
-    );
+  getId: async (id: string) => {
+    const { data }: { data: Partial<ProductT[] | null> } =
+      await HttpService().get(`/product-list/${id}/`);
     return data;
   },
 };

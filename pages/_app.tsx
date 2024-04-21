@@ -1,7 +1,7 @@
 import '@mantine/core/styles.css';
 import '../styles/globals.scss';
 import type { AppProps } from 'next/app';
-import { createTheme, MantineProvider } from '@mantine/core';
+import { MantineProvider } from '@mantine/core';
 import {
   DehydratedState,
   HydrationBoundary,
@@ -10,9 +10,8 @@ import {
 } from '@tanstack/react-query';
 import 'dayjs/locale/ru';
 import NextNProgress from 'nextjs-progressbar';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { toggleDeviceType } from '@store/deviceTypeSlice';
 import { Toaster } from 'react-hot-toast';
 import ErrorBoundary from '@layouts/ErrorBoundary/ErrorBoundary';
 import { DatesProvider } from '@mantine/dates';
@@ -26,12 +25,13 @@ type AppPropsWithLayout = AppProps & {
   pageProps: { isMobileView?: boolean; dehydratedState: DehydratedState };
 };
 
-export const queryClient = new QueryClient({
+export const queryClientBase = new QueryClient({
   defaultOptions: {
     queries: {
-      retry: 0,
-      staleTime: 1000,
-      refetchOnWindowFocus: true,
+      refetchOnWindowFocus: false,
+      refetchInterval: 2400000,
+      staleTime: 900000,
+      retry: 1,
     },
   },
 });
@@ -56,7 +56,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
             locale: 'ru',
           }}
         >
-          <QueryClientProvider client={queryClient}>
+          <QueryClientProvider client={queryClientBase}>
             <Provider store={store}>
               <HydrationBoundary state={pageProps.dehydratedState}>
                 {process.env.NODE_ENV === 'development' ? (

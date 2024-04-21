@@ -16,7 +16,7 @@ export const Card: React.FC<CardT> = ({ product }) => {
   const { push } = useRouter();
   const handlerOpenProduct = () => {
     if (!product?.id) return;
-    push(`/product/${product?.id}`);
+    push(`/product/${product?.slug}`);
   };
 
   const hanlerProductLike = (

@@ -6,6 +6,7 @@ export type PaginatedResponseT<T> = {
 };
 
 export type ProductT = {
+  slug: string;
   avg_rating: number | null;
   category: string | null;
   description: string | null;
