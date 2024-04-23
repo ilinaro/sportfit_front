@@ -1,0 +1,32 @@
+.LoginForm {
+  padding: 30px;
+  &_title {
+    display: flex;
+    justify-content: center;
+  }
+  &_form {
+    height: calc(100vh - 200px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    & > :nth-child(1n) {
+      margin-bottom: 20px;
+    }
+  }
+  &_registration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    & > :nth-child(2) {
+      cursor: pointer;
+    }
+  }
+  &_submit {
+    margin-top: 40px;
+  }
+}
+
+.TextInput {
+  border: var(--color-grey) solid 1px;
+}

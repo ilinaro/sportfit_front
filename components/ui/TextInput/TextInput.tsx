@@ -23,21 +23,27 @@ export type typesForTextField =
   | 'url'
   | 'week';
 
-type TextInputComponentT = {
+type AllTypeElement = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>;
+
+type TextInputComponentT = AllTypeElement & {
   rightSection?: React.ReactNode;
   placeholder?: string;
   name?: string;
+  color?: 'grey' | 'default';
   fullWidth?: boolean;
   maxLength?: number;
   type?: typesForTextField;
   disabled?: boolean;
   className?: string;
+  label?: string;
 };
 
 export const TextInputComponent = React.forwardRef(
   (
     {
+      color = 'default',
       className,
+      label,
       disabled,
       placeholder,
       rightSection,
@@ -58,12 +64,15 @@ export const TextInputComponent = React.forwardRef(
         type={type}
         rightSection={rightSection ?? null}
         placeholder={placeholder}
+        label={label}
         classNames={{
           input: clsx(
             styles.TextInput,
             rightSection && styles.rightSection,
+            styles[color],
             className
           ),
+          root: styles.Root,
         }}
         ref={ref}
         {...props}

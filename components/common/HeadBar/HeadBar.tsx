@@ -1,4 +1,4 @@
-import { Button } from '@components/ui';
+import { Button } from '@components';
 import styles from './HeadBar.module.scss';
 import { Text, Title } from '@mantine/core';
 import { SignIn } from 'phosphor-react';
@@ -8,18 +8,25 @@ import Link from 'next/link';
 import { useDisclosure } from '@mantine/hooks';
 import { GlobalDrawer } from '../GlobalDrawer';
 
+import { LoginForm } from './LoginForm';
+import { RegistrationForm } from './RegistrationForm';
+import { useState } from 'react';
+
 export const HeadBar: React.FC = () => {
   const { isMobile } = useAppSelector((state) => state.isMobile);
 
   const [opened, { open, close }] = useDisclosure(false);
 
-  const hanlderOpenLogin = () => {
-    console.log('hanlderOpenLogin');
-  };
+  const [toggleForm, setToggleForm] = useState(false);
 
   return (
     <>
-      <GlobalDrawer opened={opened} close={close} open={open} />
+      <GlobalDrawer opened={opened} close={close} open={open}>
+        {!toggleForm && <LoginForm toggleForm={() => setToggleForm(true)} />}
+        {toggleForm && (
+          <RegistrationForm toggleForm={() => setToggleForm(false)} />
+        )}
+      </GlobalDrawer>
       <div
         className={clsx(styles.HeadBar, {
           [styles.HeadBar_isMobile]: isMobile,
@@ -38,7 +45,7 @@ export const HeadBar: React.FC = () => {
         </div>
         {!isMobile && (
           <div className={styles.LoginSection}>
-            <Button color={'white'} onClick={hanlderOpenLogin}>
+            <Button color={'white'} onClick={open}>
               <div className={styles.Login}>
                 <Text size="md">Войти</Text>
                 <SignIn size={22} />
